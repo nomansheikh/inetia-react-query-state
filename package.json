@@ -23,7 +23,6 @@
   "scripts": {
     "build": "tsup",
     "lint": "eslint --fix .",
-    "prepare": "husky",
     "prepublishOnly": "yarn build",
     "test": "vitest run --environment jsdom"
   },
@@ -37,7 +36,6 @@
     "@types/react": "^19.1.10",
     "@types/react-dom": "^19.1.7",
     "eslint": "^9.33.0",
-    "husky": "^9.1.7",
     "jsdom": "^25.0.1",
     "lint-staged": "^16.1.2",
     "react": "^19.1.1",

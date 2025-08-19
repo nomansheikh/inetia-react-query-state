@@ -1,5 +1,5 @@
 ---
-mylib: major
+inertia-react-query-state: major
 ---
 
 Initial release.
