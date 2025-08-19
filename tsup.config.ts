@@ -6,4 +6,5 @@ export default defineConfig({
   format: ["cjs", "esm"],
   sourcemap: true,
   dts: true,
+  external: ["react", "react-dom", "@inertiajs/react"],
 })

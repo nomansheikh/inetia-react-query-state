@@ -1,1 +1,1 @@
-export { default as useInertiaQueryState } from "./useInertiaQueryState"
+export { default } from "./useInertiaQueryState"

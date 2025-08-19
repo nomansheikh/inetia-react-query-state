@@ -11,7 +11,10 @@ interface IOptions<T> extends Omit<VisitOptions, "preserveState"> {
   defaultValue?: T
 }
 
-export default function useQueryState<T>(key: string, options?: IOptions<T>) {
+export default function useInertiaQueryState<T>(
+  key: string,
+  options?: IOptions<T>,
+) {
   const [value, setValue] = useState<T | undefined>(
     options?.defaultValue || undefined,
   )

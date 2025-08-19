@@ -29,7 +29,7 @@ yarn add inertia-react-query-state
 ### Quick start
 
 ```tsx
-import { useInertiaQueryState } from "inertia-react-query-state"
+import useInertiaQueryState from "inertia-react-query-state"
 
 export default function ProductsPage() {
   const [search, setSearch] = useInertiaQueryState("search")
@@ -74,7 +74,7 @@ public function index()
 React page:
 
 ```tsx
-import { useInertiaQueryState } from "inertia-react-query-state"
+import useInertiaQueryState from "inertia-react-query-state"
 
 export default function ProductsIndex({ products }) {
   const [search, setSearch] = useInertiaQueryState("search")

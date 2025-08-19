@@ -1,7 +1,7 @@
 import { expect, it } from "vitest"
 
-import { useInertiaQueryState } from "../src"
+import useInertiaQueryState from "../src"
 
-it("exports only useInertiaQueryState", () => {
+it("exports only default useInertiaQueryState", () => {
   expect(typeof useInertiaQueryState).toBe("function")
 })
