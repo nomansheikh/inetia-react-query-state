@@ -1,5 +1,11 @@
 # inertia-react-query-state
 
+## 1.0.2
+
+### Patch Changes
+
+- 7418abc: update: license and readme
+
 ## 1.0.1
 
 ### Patch Changes
