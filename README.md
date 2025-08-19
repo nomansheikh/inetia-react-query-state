@@ -32,7 +32,7 @@ yarn add inertia-react-query-state
 import useInertiaQueryState from "inertia-react-query-state"
 
 export default function ProductsPage() {
-  const [search, setSearch] = useInertiaQueryState("search")
+  const [search, setSearch] = useInertiaQueryState<string>("search")
 
   return (
     <input
