@@ -1,0 +1,5 @@
+---
+mylib: major
+---
+
+Initial release.

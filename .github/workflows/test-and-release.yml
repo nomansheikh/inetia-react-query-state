@@ -1,0 +1,59 @@
+name: Test and Release
+
+env:
+  # Sync with .changeset/config.json:baseBranch
+  MAIN_REF: refs/heads/main
+
+on:
+  push:
+    branches: ["**"]
+
+concurrency: ${{ github.workflow }}-${{ github.ref }}
+
+jobs:
+  test-and-release:
+    name: Test and Release
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Enable corepack
+        run: corepack enable
+
+      - name: Setup node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24.5
+          cache: yarn
+
+      - name: Install deps
+        run: yarn install --frozen-lockfile
+
+      - name: Build packages
+        run: yarn build
+
+      - name: Test packages
+        run: yarn test
+
+      - name: Capture new release versions
+        if: ${{ github.ref == env.MAIN_REF }}
+        run: |
+          if yarn changeset status --output=release.json; then
+            echo "RELEASE=Version $(jq -r '.releases[0].newVersion' release.json)" >> "$GITHUB_ENV"
+            # For monorepo, replace with:
+            # echo "RELEASE=Release $(jq -r '.releases | map(.name + \"@\" + .newVersion) | join(\", \")' release.json) | join(\", \")' release.json)" >> "$GITHUB_ENV"
+            rm release.json
+          fi
+
+      - name: Create Release Pull Request or Publish to npm
+        if: ${{ github.ref == env.MAIN_REF }}
+        uses: changesets/action@v1
+        with:
+          publish: yarn changeset publish
+          title: ${{ env.RELEASE }}
+          commit: ${{ env.RELEASE }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}

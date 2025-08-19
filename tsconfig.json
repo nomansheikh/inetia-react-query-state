@@ -1,0 +1,6 @@
+{
+  "extends": "tsconfig-vite-node",
+  "compilerOptions": {
+    "lib": ["dom"]
+  }
+}
