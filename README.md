@@ -1,4 +1,4 @@
-## inertia-react-query-state
+## inertia-react-query-state 2
 
 [![npm version](https://img.shields.io/npm/v/inertia-react-query-state.svg)](https://www.npmjs.com/package/inertia-react-query-state)
 [![npm downloads](https://img.shields.io/npm/dm/inertia-react-query-state.svg)](https://www.npmjs.com/package/inertia-react-query-state)
